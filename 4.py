@@ -1,4 +1,27 @@
-kolvo = int(input('Введите кол-во сотрудников компании цифрой: '))
+def kolvo_chek():  # обработчик ошибки ввода колличества сотрудников компании
+    while True:
+        try:
+            kolvo = int(input('Введите кол-во сотрудников компании цифрой: '))
+            return kolvo
+        except ValueError:
+            print("Нужно ввести цифру")
+def kilometers_chek():  # обработчик ошибки ввода расстояния до дома сотрудика
+    while True:
+        try:
+            kilometers = int(input("Введите расстояние до дома сотрудника цифрой: "))
+            return kilometers
+        except ValueError:
+            print("Нужно ввести цифру")
+def money_chek():  # обработчик ошибки ввода расстояния до дома сотрудика
+    while True:
+        try:
+            money = int(input('Введите сумму тарифа цифрой: '))
+            return money
+        except ValueError:
+            print("Нужно ввести цифру")
+
+
+kolvo = kolvo_chek()
 tarif = []
 distance = []
 oplata = []
@@ -7,11 +30,11 @@ b = 0
 c = 0
 d = 0
 while a < kolvo: #ввод всех расстояний
-    kilometers = int(input("Введите расстояние до дома сотрудника: "))
+    kilometers = kilometers_chek()
     distance.append(kilometers)
     a += 1
 while b < kolvo: #ввод всех тарифов
-    money = int(input('Введите сумму тарифа цифрой: '))
+    money = money_chek()
     tarif.append(money)
     tarif[b] = (tarif[b], b+1)
     b += 1
